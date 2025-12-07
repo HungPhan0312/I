@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+
+.profile-card {
+    background: rgba(24, 24, 27, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 40px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 340px;
+    max-width: 95vw;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    margin-bottom: 18px;
+    background: #fff;
+    animation: avatarPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes avatarPop {
+    0% { transform: scale(0.7);}
+    70% { transform: scale(1.1);}
+    100% { transform: scale(1);}
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.name {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    animation: fadeIn 1.2s 0.2s backwards;
+}
+
+.desc {
+    margin: 0 0 24px 0;
+    font-size: 1.08rem;
+    color: #d1d5db;
+    text-align: center;
+    animation: fadeIn 1.2s 0.4s backwards;
+}
+
+.container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 18px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    border-radius: 16px 16px 0 0;
+    pointer-events: none;
+}
+
+.icon i {
+    font-size: 26px;
+    color: #444;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+    position: relative;
+}
+
+.label {
+    margin-left: 12px;
+    opacity: 0;
+    font-weight: 600;
+    font-size: 15px;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateX(-10px);
+    color: #fff;
+}
+
+.icon:hover, .icon:focus {
+    transform: translateY(-3px) scale(1.02);
+    width: 140px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2),
+        0 8px 24px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.icon:hover i, .icon:focus i {
+    color: #fff;
+}
+
+.icon:hover .label, .icon:focus .label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.facebook:hover, .facebook:focus {
+    background-color: #1877f2;
+    box-shadow: 0 0 15px #1877f2, 0 0 30px #1877f2;
+}
+
+.instagram:hover, .instagram:focus {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 0 15px #d6249f, 0 0 30px #fd5949;
+}
+
+.youtube:hover, .youtube:focus {
+    background-color: #ff0000;
+    box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+}
+
+.tiktok:hover, .tiktok:focus {
+    background: linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%);
+    box-shadow: 0 0 15px #000, 0 0 30px #fe2c55;
+}
+
+.icon:active {
+    transform: translateY(-1px) scale(0.98);
+}
+@media (max-width: 600px) {
+    .profile-card {
+        padding: 24px 8px 16px 8px;
+        min-width: 0;
+    }
+    .container {
+        flex-direction: column;
+        gap: 18px;
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 30%, #25f4ee55 0, transparent 60%),
+        radial-gradient(circle at 80% 70%, #fe2c5555 0, transparent 60%),
+        radial-gradient(circle at 50% 90%, #1877f255 0, transparent 70%);
+    opacity: 0.7;
+    pointer-events: none;
+    animation: bgMove 12s linear infinite alternate;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position:
+            20% 30%,
+            80% 70%,
+            50% 90%;
+    }
+    100% {
+        background-position:
+            30% 40%,
+            70% 60%,
+            60% 80%;
+    }
+}
